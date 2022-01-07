@@ -30,10 +30,6 @@ static inline void init_extensions4(void) { }
 static inline void init_extensions6(void) { }
 #endif
 
-/* Required by certain extensions like SNAT and DNAT */
-extern int kernel_version;
-void get_kernel_version(void);
-
 struct fw3_ipt_handle {
 	enum fw3_family family;
 	enum fw3_table table;

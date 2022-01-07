@@ -123,21 +123,6 @@ static struct {
 } xext;
 
 
-/* Required by certain extensions like SNAT and DNAT */
-int kernel_version = 0;
-
-void
-get_kernel_version(void)
-{
-	static struct utsname uts;
-	int x = 3, y = 0, z = 0;
-
-	if (uname(&uts) != -1)
-		sscanf(uts.release, "%d.%d.%d", &x, &y, &z);
-
-	kernel_version = 0x10000 * x + 0x100 * y + z;
-}
-
 static void fw3_init_extensions(void)
 {
 	init_extensions();
