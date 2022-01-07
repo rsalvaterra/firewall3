@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef __FW3_XTABLES_10_H
-#define __FW3_XTABLES_10_H
+#ifndef __FW3_XTABLES_H
+#define __FW3_XTABLES_H
 
 extern struct xtables_match *xtables_pending_matches;
 extern struct xtables_target *xtables_pending_targets;

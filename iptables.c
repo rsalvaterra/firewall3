@@ -44,14 +44,7 @@
 
 #include "options.h"
 
-/* xtables interface */
-#if (XTABLES_VERSION_CODE >= 10)
-# include "xtables-10.h"
-#elif (XTABLES_VERSION_CODE == 5)
-# include "xtables-5.h"
-#else
-# error "Unsupported xtables version"
-#endif
+#include "xtables.h"
 
 #include "iptables.h"
 
@@ -109,9 +102,7 @@ static struct xtables_globals xtg = {
 	.program_version = "4",
 	.orig_opts = base_opts,
 	.exit_err = fw3_ipt_error_handler,
-#if XTABLES_VERSION_CODE > 10
 	.compat_rev = xtables_compatible_revision,
-#endif
 };
 
 static struct xtables_globals xtg6 = {
@@ -119,9 +110,7 @@ static struct xtables_globals xtg6 = {
 	.program_version = "6",
 	.orig_opts = base_opts,
 	.exit_err = fw3_ipt_error_handler,
-#if XTABLES_VERSION_CODE > 10
 	.compat_rev = xtables_compatible_revision,
-#endif
 };
 
 static struct {
