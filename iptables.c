@@ -709,16 +709,12 @@ init_match(struct fw3_ipt_rule *r, struct xtables_match *m, bool no_clone)
 static bool
 need_protomatch(struct fw3_ipt_rule *r, const char *pname)
 {
-	struct xtables_match *match;
-
 	if (!pname)
 		return false;
 
-	match = xtables_find_match(pname, XTF_DONT_LOAD, NULL);
-	if (!match)
+	if (!xtables_find_match(pname, XTF_DONT_LOAD, NULL))
 		return true;
 
-	free(match);
 	return !r->protocol_loaded;
 }
 
